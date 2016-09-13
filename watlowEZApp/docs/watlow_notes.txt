@@ -1,0 +1,20 @@
+# Author: Wesley Moore (wmoore@jlab.org)
+# Date:   Sept 2014
+
+Watlow/Filtrine Chiller Notes
+
+--------------------------------------------------------------------------------
+Menu & Defaults (manual pg. 61)
+--------------------------------------------------------------------------------
+[CoM]
+[SEt]
+    [1]
+    [CoM]
+        [iP.M]          DHCP/FIXED  - DHCP
+        [iP.F1 - F4]    IP          - 169.254.1.1
+        [iP.S1 - S4]    Subnet Mask - 255.255.0.0
+        [iP.g1 - g4]    Gateway     - 0.0.0.0
+  
+        [Mb.E]          Modbus TCP  - YES
+        [EiP.E]         Ethernet/IP - YES
+        

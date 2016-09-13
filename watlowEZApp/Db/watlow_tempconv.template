@@ -1,0 +1,9 @@
+record(calc, "$(P)$(R)_C") {
+    field(DESC, "Temperature C")
+    field(INPA, "$(P)$(R)")
+    field(CALC, "(A-32) * (5/9)")
+    field(EGU,  "C")
+    field(PREC, "2")
+    field(SCAN, ".5 second")
+}
+

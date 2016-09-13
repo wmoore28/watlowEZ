@@ -1,0 +1,72 @@
+# File: watlow_mbbi.db
+# 
+# Filtrine Manufacturing Company (Watlow PID Controller)
+# 
+# 
+# Macros
+#   P     - standard record prefix
+#   R     - standard record prefix
+#   
+# Author: Wesley Moore (wmoore@jlab.org)
+# Date:   Sept 2014
+#
+
+record(mbbi, "$(P)$(R)AIN_ERR_DESC") {
+    field(DTYP, "Raw Soft Channel")
+    field(INP,  "$(P)$(R)AIN_ERR.VAL")
+    field(ZRST, "None")
+    field(ZRVL, "61")
+    field(ONST, "Open")
+    field(ONVL, "65")
+    field(TWST, "Fail")
+    field(TWVL, "32")
+    field(THST, "Shorted")
+    field(THVL, "127")
+    field(FRST, "Measurement Err")
+    field(FRVL, "140")
+    field(FVST, "Bad Cal. Data")
+    field(FVVL, "139")
+    field(SXST, "Ambient Error")
+    field(SXVL, "9")
+    field(SVST, "RTD Error")
+    field(SVVL, "141")
+    field(EIST, "Not Sourced")
+    field(EIVL, "246")
+    field(SCAN, "1 second")
+}
+
+record(mbbi, "$(P)$(R)SENS_TYP_DESC") {
+    field(DTYP, "Raw Soft Channel")
+    field(INP,  "$(P)$(R)SENS_TYP.VAL")
+    field(ZRST, "Off")
+    field(ZRVL, "62")
+    field(ONST, "Thermocouple")
+    field(ONVL, "95")
+    field(TWST, "Millivolts")
+    field(TWVL, "56")
+    field(THST, "Volts dc")
+    field(THVL, "104")
+    field(FRST, "Milliamps dc")
+    field(FRVL, "112")
+    field(FVST, "RTD 100 Ohm")
+    field(FVVL, "113")
+    field(SXST, "RTD 1k Ohm")
+    field(SXVL, "114")
+    field(SVST, "Pot. 1k Ohm")
+    field(SVVL, "155")
+    field(EIST, "Thermistor")
+    field(EIVL, "229")
+    field(SCAN, "1 second")
+}
+
+record(mbbi, "$(P)$(R)DISP_UNITS_DESC") {
+    field(DTYP, "Raw Soft Channel")
+    field(INP,  "$(P)$(R)DISP_UNITS.VAL")
+    field(ZRST, "F")
+    field(ZRVL, "30")
+    field(ONST, "C")
+    field(ONVL, "15")
+    field(SCAN, "1 second")
+}
+
+

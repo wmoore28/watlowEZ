@@ -1,0 +1,46 @@
+# asyn record for the underlying asyn octet port
+file "$(ASYN)/db/asynRecord.db" { pattern
+{P,         R,                  PORT,   ADDR,   IMAX,   OMAX}
+{BCAL_DS:   CHILL:Asyn,         ETH1,      0,     80,     80}
+{BCAL_US:   CHILL:Asyn,         ETH2,      0,     80,     80}
+}
+
+file "db/watlow_mbbi.db" { pattern
+{P,         R}
+{BCAL_DS:,  CHILL:}
+{BCAL_US:,  CHILL:}
+}
+
+file "db/watlow_ai.template" { pattern
+{P,         R,                  PORT,       OFFSET, DATA_TYPE,    LOPR,   HOPR, PREC,   SCAN}
+{BCAL_DS:,  CHILL:AIN,          DS_360_IN,       0, FLOAT32_LE,   -1e6,    1e6,    5,   "I/O Intr"}
+{BCAL_DS:,  CHILL:AIN_ERR,      DS_360_IN,       2, UINT16,       -1e6,    1e6,    0,   "I/O Intr"}
+{BCAL_DS:,  CHILL:AIN_RTD,      DS_360_IN,       4, FLOAT32_LE,   -1e6,    1e6,    5,   "I/O Intr"}
+{BCAL_DS:,  CHILL:AMB_TEMP,     DS_360_IN,       6, FLOAT32_LE,   -1e6,    1e6,    5,   "I/O Intr"}
+{BCAL_DS:,  CHILL:SENS_TYP,     DS_360_IN,       8, UINT16,       -1e6,    1e6,    0,   "I/O Intr"}
+{BCAL_DS:,  CHILL:DISP_UNITS,   DS_2490_IN,      0, UINT16,       -1e6,    1e6,    0,   "I/O Intr"}
+#
+{BCAL_US:,  CHILL:AIN,          US_360_IN,       0, FLOAT32_LE,   -1e6,    1e6,    5,   "I/O Intr"}
+{BCAL_US:,  CHILL:AIN_ERR,      US_360_IN,       2, UINT16,       -1e6,    1e6,    0,   "I/O Intr"}
+{BCAL_US:,  CHILL:AIN_RTD,      US_360_IN,       4, FLOAT32_LE,   -1e6,    1e6,    5,   "I/O Intr"}
+{BCAL_US:,  CHILL:AMB_TEMP,     US_360_IN,       6, FLOAT32_LE,   -1e6,    1e6,    5,   "I/O Intr"}
+{BCAL_US:,  CHILL:SENS_TYP,     US_360_IN,       8, UINT16,       -1e6,    1e6,    0,   "I/O Intr"}
+{BCAL_US:,  CHILL:DISP_UNITS,   US_2490_IN,      0, UINT16,       -1e6,    1e6,    0,   "I/O Intr"}
+}
+
+# Convert temp readback from F to C
+file "db/watlow_tempconv.template" { pattern
+{P,         R}
+{BCAL_DS:,  CHILL:AIN}
+{BCAL_US:,  CHILL:AIN}
+}
+
+file "db/watlow_asyn.template" { pattern
+{P,         R,                  PORT,     ADDR,  TMOD,  IFACE}
+{BCAL_DS:,  CHILL:Asyn:W360,    DS_360_IN,   0,  Read,  asynInt32}
+{BCAL_DS:,  CHILL:Asyn:W2490,   DS_2490_IN,  0,  Read,  asynInt32}
+#
+{BCAL_US:,  CHILL:Asyn:W360,    US_360_IN,   0,  Read,  asynInt32}
+{BCAL_US:,  CHILL:Asyn:W2490,   US_2490_IN,  0,  Read,  asynInt32}
+}
+
